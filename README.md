@@ -20,4 +20,4 @@ The Quiz Game System is a command-line Python application that allows users to t
 
 ##Authors
 Name: Ubeydah Yussuf (Partner A)
-Cohort: Tech4Girls Cohort 4
+Cohort: Tech4Girls Cohort 
