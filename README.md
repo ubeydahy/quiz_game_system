@@ -42,7 +42,7 @@ The Quiz Game System is a command-line Python application that allows users to t
 
 
 
-## Step-by-step Instructions To Run The Project Locally
+##Step-by-step Instructions To Run The Project Locally
 
 1. Clone the repository
 2. Navigate into the project folder
