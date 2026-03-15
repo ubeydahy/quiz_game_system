@@ -70,3 +70,39 @@ def select_questions(questions):
     else:
         print("Invalid choice. Defaulting to 5 questions.")
         return questions[:5]
+
+
+        # Function that runs the quiz
+def run_quiz(selected_questions):
+
+    score = 0           # keeps track of correct answers
+    wrong_list = []     # stores questions answered incorrectly
+
+    # loop through each question
+    for q in selected_questions:
+
+        print("\n" + q["question"])
+
+        # print the multiple choice options
+        for option in q["options"]:
+            print(option)
+
+        # ask the user for their answer
+        user_answer = input("Enter your answer (A/B/C/D): ").upper()
+
+        # validate the answer input
+        while user_answer not in ["A", "B", "C", "D"]:
+            user_answer = input("Invalid input. Please enter A, B, C, or D: ").upper()
+
+        # check if the answer is correct
+        if user_answer == q["answer"]:
+            print("Correct!")
+            score += 1
+        else:
+            print("Wrong!")
+            print("Correct answer:", q["answer"])
+
+            # store wrong questions for results summary
+            wrong_list.append((q["question"], q["answer"]))
+
+    return score, wrong_list
