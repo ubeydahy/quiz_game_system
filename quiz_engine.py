@@ -106,3 +106,36 @@ def run_quiz(selected_questions):
             wrong_list.append((q["question"], q["answer"]))
 
     return score, wrong_list
+
+
+    # Function to display quiz results
+def display_results(score, total, wrong_list):
+
+    incorrect = total - score
+    percentage = (score / total) * 100
+
+    # determine grade
+    if percentage >= 80:
+        grade = "A"
+    elif percentage >= 70:
+        grade = "B"
+    elif percentage >= 50:
+        grade = "C"
+    else:
+        grade = "F"
+
+    print("\n===== Quiz Results =====")
+    print("Total Questions:", total)
+    print("Correct Answers:", score)
+    print("Incorrect Answers:", incorrect)
+    print("Percentage:", round(percentage, 2), "%")
+    print("Grade:", grade)
+
+    # show review of wrong questions
+    if wrong_list:
+        print("\nQuestions you got wrong:")
+
+        for question, answer in wrong_list:
+            print("Question:", question)
+            print("Correct Answer:", answer)
+            print()
