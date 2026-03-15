@@ -139,3 +139,41 @@ def display_results(score, total, wrong_list):
             print("Question:", question)
             print("Correct Answer:", answer)
             print()
+
+
+
+            # Function to save player's score to the leaderboard
+def save_leaderboard(name, score):
+
+    # open leaderboard file in append mode
+    with open("leaderboard.txt", "a") as file:
+        file.write(f"{name},{score}\n")
+
+
+        # Main function to run the quiz program
+def main():
+
+    # load questions from file
+    questions = load_questions()
+
+    # shuffle the questions randomly
+    random.shuffle(questions)
+
+    # allow user to select number of questions
+    selected_questions = select_questions(questions)
+
+    # run the quiz
+    score, wrong_list = run_quiz(selected_questions)
+
+    # display results summary
+    display_results(score, len(selected_questions), wrong_list)
+
+    # ask user for their name
+    name = input("\nEnter your name for the leaderboard: ")
+
+    # save the score
+    save_leaderboard(name, score)
+
+
+# run the program
+main()
