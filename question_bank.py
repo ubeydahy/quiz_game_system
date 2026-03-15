@@ -195,11 +195,52 @@ def load_questions():
     
     return questions
 
-#DIfficulty filtering function
+#Function to add new question
+
+def add_question(questions):
+    new_id = len(questions) + 1
+    question_text = input("Enter the question: ")
+    options = []
+    for i in range(4):
+        option = input(f"Enter option {i + 1}: ")
+        options.append(option)
+    answer = input("Enter the correct answer (A, B, C, or D): ")
+    difficulty = input("Enter the difficulty level (Easy, Medium, Hard): ")
+
+    new_question = {
+        "id": new_id,
+        "question": question_text,
+        "options": options,
+        "answer": answer,
+        "difficulty": difficulty
+    }
+    
+    questions.append(new_question)
+    save_questions(questions)
+    print("New question added successfully!")
+
+#Function for difficulty filtering
+
 def filter_questions_by_difficulty(questions, difficulty):
     filtered_questions = [question for question in questions if question['difficulty'].lower() == difficulty.lower()]
     return filtered_questions
 
-save_questions(questions)
-loaded_questions = load_questions()
-print(loaded_questions)
+# save_questions(questions)
+
+# loaded_questions = load_questions()
+# print(loaded_questions)
+
+# add_question(questions)
+
+questions = load_questions()
+difficulty= input("Enter difficulty (Easy, Medium, Hard): ")
+filtered_questions = filter_questions_by_difficulty(questions, difficulty)
+for question in filtered_questions:
+    print(f"ID: {question['id']}")
+    print(f"Question: {question['question']}")
+    print("Options:")
+    for option in question['options']:
+        print(option)
+    print(f"Answer: {question['answer']}")
+    print(f"Difficulty: {question['difficulty']}")
+    print()
