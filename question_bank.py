@@ -218,6 +218,11 @@ def add_question(questions):
     save_questions(questions)
     print("New question added successfully!")
 
+#DIfficulty filtering function
+def filter_questions_by_difficulty(questions, difficulty):
+    filtered_questions = [question for question in questions if question['difficulty'].lower() == difficulty.lower()]
+    return filtered_questions
+
 
 save_questions(questions)
 loaded_questions = load_questions()
