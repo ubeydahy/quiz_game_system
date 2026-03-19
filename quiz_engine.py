@@ -42,8 +42,8 @@ def load_questions():
     # return the list of questions
     return questions
 
-
     # Function to allow the user to choose how many questions they want
+
 def select_questions(questions):
 
     print("\nHow many questions would you like to answer?")
@@ -71,8 +71,9 @@ def select_questions(questions):
         print("Invalid choice. Defaulting to 5 questions.")
         return questions[:5]
 
-
         # Function that runs the quiz
+
+
 def run_quiz(selected_questions):
 
     score = 0           # keeps track of correct answers
@@ -92,7 +93,8 @@ def run_quiz(selected_questions):
 
         # validate the answer input
         while user_answer not in ["A", "B", "C", "D"]:
-            user_answer = input("Invalid input. Please enter A, B, C, or D: ").upper()
+            user_answer = input(
+                "Invalid input. Please enter A, B, C, or D: ").upper()
 
         # check if the answer is correct
         if user_answer == q["answer"]:
@@ -107,8 +109,9 @@ def run_quiz(selected_questions):
 
     return score, wrong_list
 
-
     # Function to display quiz results
+
+
 def display_results(score, total, wrong_list):
 
     incorrect = total - score
@@ -140,17 +143,17 @@ def display_results(score, total, wrong_list):
             print("Correct Answer:", answer)
             print()
 
-
-
             # Function to save player's score to the leaderboard
-def save_leaderboard(name, score):
 
+
+def save_leaderboard(name, score):
     # open leaderboard file in append mode
     with open("leaderboard.txt", "a") as file:
         file.write(f"{name},{score}\n")
 
-
         # Main function to run the quiz program
+
+
 def main():
 
     # load questions from file

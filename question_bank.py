@@ -164,7 +164,6 @@ questions = [
 
 # Function for Saving Questions to questions.txt file
 
-
 def save_questions(questions):
     try:
         with open("question.txt", "w") as file:
@@ -240,23 +239,23 @@ save_questions(questions)
 # loaded_questions = load_questions()
 # print(loaded_questions)
 
-add_question(questions)
+# add_question(questions)
 
 
-# try:
-#     questions = load_questions()
-#     difficulty = input("Enter difficulty (Easy, Medium, Hard): ")
-#     filtered_questions = filter_questions_by_difficulty(questions, difficulty)
+try:
+    questions = load_questions()
+    difficulty = input("Enter difficulty (Easy, Medium, Hard): ")
+    filtered_questions = filter_questions_by_difficulty(questions, difficulty)
 
-#     for question in filtered_questions:
-#         print(f"ID: {question['id']}")
-#         print(f"Question: {question['question']}")
-#         print("Options:")
-#         for option in question['options']:
-#             print(option)
-#         print(f"Answer: {question['answer']}")
-#         print(f"Difficulty: {question['difficulty']}")
-#         print()
+    for question in filtered_questions:
+        print(f"ID: {question['id']}")
+        print(f"Question: {question['question']}")
+        print("Options:")
+        for option in question['options']:
+            print(option)
+        print(f"Answer: {question['answer']}")
+        print(f"Difficulty: {question['difficulty']}")
+        print()
 
-# except Exception as e:
-#     print("An error occurred:", e)
+except Exception as e:
+    print("An error occurred:", e)
